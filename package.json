@@ -1,0 +1,24 @@
+{
+  "name": "john-nasimba",
+  "version": "1.0.0",
+  "description": "portfolio website",
+  "main": "index.js",
+  "scripts": {
+    "server": "npm install --prefix server",
+    "client": "npm install --prefix client",
+    "watch": "concurrently --kill-others \"npm run server\" \"npm run client\"",
+    "deploy": "rm -r server/public/build && npm run build --prefix client && npm run start --prefix server",
+    "deploy-cluster": "rm -r server/public/build && npm run build --prefix client && npm run cluster --prefix server",
+    "test": "npm run test --prefix server && npm run test --prefix client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Johnnasimba/node-mailer.git"
+  },
+  "author": "John Nasimba",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Johnnasimba/node-mailer/issues"
+  },
+  "homepage": "https://localhost:8000"
+}
