@@ -13,12 +13,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Johnnasimba/node-mailer.git"
+    "url": "git+https://github.com/Johnnasimba/John-Nasimba.git"
   },
   "author": "John Nasimba",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Johnnasimba/node-mailer/issues"
+    "url": "https://github.com/Johnnasimba/John-Nasimba/issues"
   },
   "homepage": "https://localhost:8000"
 }
