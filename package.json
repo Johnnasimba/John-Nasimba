@@ -13,6 +13,7 @@
     "watch": "nodemon index.js",
     "start": "node index.js",
     "server": "nodemon index.js",
+    "postinstall": "ng build",
     "install-client": "cd client && npm install",
     "heroku-postbuild": "npm run install-client",
     "cluster": "pm2 start index.js -i max"
