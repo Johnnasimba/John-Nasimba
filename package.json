@@ -9,11 +9,14 @@
   "scripts": {
     "test": "jest --detectOpenHandles",
     "test-watch": "jest --watch",
-    "watch": "nodemon server.js",
-    "start": "node server.js",
-    "server": "nodemon server.js",
+    "watch": "nodemon index.js",
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "build": "cd client && npm run build",
+    "install-client": "cd client && npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
     "deploy": "npm run build --prefix client && npm run start",
-    "cluster": "pm2 start server.js -i max"
+    "cluster": "pm2 start index.js -i max"
   },
   "author": "John Nasimba",
   "license": "ISC",
