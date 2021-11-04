@@ -13,9 +13,7 @@
     "watch": "nodemon index.js",
     "start": "node index.js",
     "server": "nodemon index.js",
-    "postinstall": "cd client && npm run build",
-    "install-client": "cd client && npm install",
-    "heroku-postbuild": "npm run install-client",
+    "heroku-postbuild": "npm install",
     "cluster": "pm2 start index.js -i max"
   },
   "author": "John Nasimba",
