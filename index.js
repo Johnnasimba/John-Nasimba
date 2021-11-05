@@ -18,17 +18,7 @@ app.use(bodyParser.json());
 app.use(morgan('combined'));
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'client', 'build')))
 
-app.use((req, res, next) => {
-    res.header({"Access-Control-Allow-Origin": "*"});
-    next();
-  }) 
- 
-
-app.get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client', 'build','index.html'))
-})
 
 
 
@@ -78,8 +68,21 @@ app.post('/send', (req, res) => {
 })
 
 
+app.use((req, res, next) => {
+    res.header({"Access-Control-Allow-Origin": "*"});
+    next();
+  }) 
+  
+ 
+app.use(express.static(path.join(__dirname, 'public', 'build')))
 
-const PORT=process.env.PORT||8000;
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'build','index.html'))
+})
+
+
+
+const PORT= process.env.PORT ||5000;
 
 app.listen(PORT, () => {
     console.log("server running on port "+ PORT);

@@ -8,11 +8,10 @@
   "description": "Portfolio website",
   "main": "index.js",
   "scripts": {
-    "test": "jest --detectOpenHandles",
-    "test-watch": "jest --watch",
     "watch": "nodemon index.js",
     "start": "node index.js",
     "server": "nodemon index.js",
+    "heroku-postbuild": "npm install",
     "cluster": "pm2 start index.js -i max"
   },
   "author": "John Nasimba",
