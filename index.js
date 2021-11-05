@@ -75,23 +75,12 @@ app.use((req, res, next) => {
   }) 
 
  
-app.use(express.static(path.join(__dirname, 'public', 'build')))
+app.use(express.static(path.join(__dirname, 'public', 'build')));
 
-app.get('*',function(req,res,next){
-    // Only use https
-    if(req.headers['x-forwarded-proto']!='https'){
-        res.redirect('https://www.john-nasimba.com/'+req.url);
-    }else
-    {
-        next() /* Continue to other routes if we're not redirecting */
-    }
+
+app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'build','index.html'))
-  })
-
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'public', 'build','index.html'))
-// })
-
+});
 
 
 const PORT= process.env.PORT ||5000;
