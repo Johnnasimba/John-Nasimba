@@ -1,5 +1,3 @@
-import sslRedirect from 'heroku-ssl-redirect';
-
 
 const express =  require('express');
 const bodyParser = require('body-parser');
@@ -9,7 +7,6 @@ const morgan = require('morgan');
 require('dotenv').config()
 
 const app = express();
-app.use(sslRedirect());
 
 
 

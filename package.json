@@ -23,7 +23,6 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.3.4",
-    "heroku-ssl-redirect": "^0.1.1",
     "john-nasimba": "file:..",
     "morgan": "^1.10.0",
     "nodemailer": "^6.7.0",
