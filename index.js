@@ -1,7 +1,8 @@
+import sslRedirect from 'heroku-ssl-redirect';
+
+
 const express =  require('express');
 const bodyParser = require('body-parser');
-const sslRedirect = require('heroku-ssl-redirect');
-
 const path =  require('path');
 const nodemailer = require('nodemailer');
 const morgan = require('morgan');
