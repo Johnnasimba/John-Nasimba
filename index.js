@@ -1,11 +1,14 @@
 const express =  require('express');
 const bodyParser = require('body-parser');
+const sslRedirect = require('heroku-ssl-redirect');
+
 const path =  require('path');
 const nodemailer = require('nodemailer');
 const morgan = require('morgan');
 require('dotenv').config()
 
 const app = express();
+app.use(sslRedirect());
 
 
 
@@ -72,7 +75,7 @@ app.use((req, res, next) => {
     res.header({"Access-Control-Allow-Origin": "*"});
     next();
   }) 
-  
+
  
 app.use(express.static(path.join(__dirname, 'public', 'build')))
 
