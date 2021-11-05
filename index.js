@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const path =  require('path');
 const nodemailer = require('nodemailer');
 const morgan = require('morgan');
+const enforce = require('express-sslify');
 require('dotenv').config()
 
 const app = express();
@@ -19,9 +20,23 @@ app.use(bodyParser.json());
 app.use(morgan('combined'));
 
 app.use(express.json());
+app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 
 
+
+app.use((req, res, next) => {
+    res.header({"Access-Control-Allow-Origin": "*"});
+    next();
+  }) 
+
+ 
+app.use(express.static(path.join(__dirname, 'public', 'build')));
+
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'build','index.html'))
+});
 
 app.post('/send', (req, res) => {
     const output = `
@@ -67,21 +82,6 @@ app.post('/send', (req, res) => {
     }
     main().catch(console.error);
 })
-
-
-app.use((req, res, next) => {
-    res.header({"Access-Control-Allow-Origin": "*"});
-    next();
-  }) 
-
- 
-app.use(express.static(path.join(__dirname, 'public', 'build')));
-
-
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'build','index.html'))
-});
-
 
 const PORT= process.env.PORT ||5000;
 
